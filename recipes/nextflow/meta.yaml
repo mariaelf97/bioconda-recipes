@@ -1,5 +1,5 @@
-{% set version = "24.10.6" %}
-{% set sha256 = "6233bd72e95358eff98fe54b01833194bef4505cf4980521b417e7586e96c23b" %}
+{% set version = "26.04.6" %}
+{% set sha256 = "61a755edbed743cfbb568f3a6c67af68481a2f6a4d6dffcc4295e51318968281" %}
 
 package:
   name: nextflow
@@ -16,14 +16,15 @@ source:
   sha256: {{ sha256 }}
 
 requirements:
-  # Next major version release (25.04.x) will require at least Java 17
   host:
-    - openjdk >=11,<=23
-    - coreutils
+    - openjdk >=17,<=24
+    - coreutils          # [not win]
+    - uutils-coreutils   # [win]
     - curl
   run:
-    - openjdk >=11,<=23
-    - coreutils
+    - openjdk >=17,<=24
+    - coreutils          # [not win]
+    - uutils-coreutils   # [win]
     - curl
 
 test:

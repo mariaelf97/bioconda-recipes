@@ -1,4 +1,4 @@
-{% set version = "1.0.3" %}
+{% set version = "4.0.0" %}
 {% set name = "Bygul" %}
 
 package:
@@ -16,7 +16,7 @@ build:
 
 source:
   url:  https://github.com/andersen-lab/{{ name }}/archive/V{{ version }}.tar.gz
-  sha256: 65d2ce876eb3afa11a6a03f45afb842e72c0a348fdea2d6a09fceab07642a2fc
+  sha256: 42591ca7198673c3ce55948ab170f525a884ab5b0dbfc6714b64efbb78970ed1
 
 requirements:
   host:

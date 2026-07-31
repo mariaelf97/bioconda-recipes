@@ -3,12 +3,13 @@
 set -e
 set -u
 
-zenodo_id='14921616'
+zenodo_id='17749038'
 
 # Download test datasets
 mkdir -p test/data
 
 curl -L "https://zenodo.org/records/${zenodo_id}/files/4DNFI9GMP2J8.stripepy.mcool?download=1" -o test/data/4DNFI9GMP2J8.mcool
+curl -L "https://zenodo.org/records/${zenodo_id}/files/4DNFI6HDY7WZ.stripepy.chr16.5000.cool?download=1" -o test/data/4DNFI6HDY7WZ.stripepy.chr16.5000.cool
 curl -L "https://zenodo.org/records/${zenodo_id}/files/results_4DNFI9GMP2J8_v1.hdf5?download=1" -o test/data/results_4DNFI9GMP2J8_v1.hdf5
 curl -L "https://zenodo.org/records/${zenodo_id}/files/results_4DNFI9GMP2J8_v2.hdf5?download=1" -o test/data/results_4DNFI9GMP2J8_v2.hdf5
 curl -L "https://zenodo.org/records/${zenodo_id}/files/results_4DNFI9GMP2J8_v3.hdf5?download=1" -o test/data/results_4DNFI9GMP2J8_v3.hdf5
@@ -17,10 +18,11 @@ curl -L "https://zenodo.org/records/${zenodo_id}/files/stripepy-call-result-tabl
 # Checksum datasets
 cat << EOF > checksums.md5
 a17d08460c03cf6c926e2ca5743e4888  test/data/4DNFI9GMP2J8.mcool
+0abfa93d40b71e960593c11ae092573e  test/data/4DNFI6HDY7WZ.stripepy.chr16.5000.cool
 03bca8d430191aaf3c90a4bc22a8c579  test/data/results_4DNFI9GMP2J8_v1.hdf5
 dd14a2f69b337c40727d414d85e2f0a4  test/data/results_4DNFI9GMP2J8_v2.hdf5
-0e618f61f35579968105e84bf50a2598  test/data/results_4DNFI9GMP2J8_v3.hdf5
-52c4154c9e974a3130b3ecaa7b729827  test/data/stripepy-call-result-tables.tar.xz
+47c6b3ec62b53397d44cd1813caf678b  test/data/results_4DNFI9GMP2J8_v3.hdf5
+04ef7694cbb68739f205c5030681c199  test/data/stripepy-call-result-tables.tar.xz
 EOF
 
 md5sum -c checksums.md5

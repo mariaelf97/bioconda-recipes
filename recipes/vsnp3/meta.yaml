@@ -1,7 +1,7 @@
 {% set user = "USDA-VS" %}
 {% set name = "vsnp3" %}
-{% set version = "3.28" %}
-{% set sha256 = "3c80fbe8f2a6a530a20f5dd3b39eda0e9bab3235856f838ad20ca27984bea29f" %}
+{% set version = "3.35" %}
+{% set sha256 = "5fbc88816288b5141fa6f4c6f745c7deb4e31e3475f40685cbae759ef801a4e5" %}
 
 
 package:
@@ -15,7 +15,7 @@ build:
     - {{ pin_subpackage('vsnp3', max_pin="x") }}
 
 source:
-  url: https://github.com/{{ user }}/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/{{ user }}/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 requirements:
@@ -28,6 +28,7 @@ requirements:
     - cairosvg >=2.5.2
     - dask >=2022.01.1
     - freebayes >=1.3.5
+    - vcflib =1.0.12
     - humanize >=3.14.0
     - numpy >=1.16,<=1.26
     - pandas >=1.3,<=2.2
@@ -51,7 +52,7 @@ test:
 
 about:
   home: https://github.com/{{ user }}/{{ name }}
-  license: GPL3
+  license: GPL-3.0-or-later
   license_file: LICENSE
   summary: Rapidly call, validate, and compare SNPs from FASTQ files in a timely manner utilizing large data sets.
   dev_url: https://github.com/USDA-VS/vsnp3
